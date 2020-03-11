@@ -1,0 +1,206 @@
+/*
+这里的渐变应该由color thief提供
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body,
+body .player{
+    margin: 0 auto;
+}
+body .player .player-box {
+    margin-top: 10%;
+    margin-left: calc(50% - 200px);
+    width: 417px;
+    height: 119px;
+    overflow: hidden;
+    z-index: 0;
+    background-image: linear-gradient(-14deg,
+    #a9a1b4 0%,
+    #a9a4b7 8%,
+    #a9a8ba 16%,
+    #a6cbd9 100%);
+    border-radius: 5px;
+
+
+}
+body .player .player-box:before {
+    /*用来插入东西的，这里必须为空，
+    这个经常和 :before 及 :after 伪元素配合使用*/
+    content: "";
+    background: inherit;
+    width: inherit;
+    height: inherit;
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1; /*设置层级，相当于PS中的图层，越小越靠下*/
+    filter: blur(5px) brightness(0.95);
+    /*移上去有动画*/
+    transition: all .2s;
+    -webkit-transition: all .2s; /* Safari */
+
+}
+body .player .player-box:hover:before {
+     content: "";
+     background: inherit;
+     width: inherit;
+     height: inherit;
+     display: inline-block;
+     position: absolute;
+     overflow: hidden;
+     z-index: -2;
+     filter: blur(20px) brightness(0.85);
+
+ }
+
+body .player .player-box .song-title {
+    padding-top: 24px;
+    padding-left: 24px;
+    font-size: 24px;
+    font-family: "Gilroy ExtraBold", "Monsterrat", "Microsoft YaHei", serif;
+}
+body .player .player-box .song-info {
+    margin-top: -2px;
+    padding-left: 24px;
+    font-size: 12px;
+    font-family: "Gilroy Regular", "Monsterrat", "Microsoft YaHei", serif;
+}
+body .player .player-box .cover {
+    margin-left: 218px;
+    margin-top: -150px;
+    width: 200px;
+    height: 200px;
+    z-index: 0;
+    /*background-clip: content-box;*/
+    mix-blend-mode: darken;
+    filter: brightness(1.1);
+    opacity: 0.75;
+}
+
+body .player .player-box .btns-box {
+    margin-top: 29px;
+    margin-left: 24px;
+    margin-right: 11px;
+    position: relative;
+    z-index: 1;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    align-items: center;
+}
+body .player .player-box .btns-box .btn {
+    width: 12px;
+    height: 12px;
+    margin-right: 9px;
+    fill: #50637a;
+    cursor: pointer;
+    /*变亮动画*/
+    transition: all .2s;
+    -webkit-transition: all .2s; /* Safari */
+}
+
+body .player .player-box .btns-box .btn:hover {
+    filter: brightness(1.5);
+}
+
+body .player .player-box .btns-box .progressbar {
+    align-items: center;
+}
+body .player .player-box .btns-box .progress {
+    position: absolute;
+    z-index: 2;
+    width: 100px;
+    height: 4px;
+    background-color: #b8d5de;
+    border-radius: 2px;
+}
+body .player .player-box .btns-box .progressbar-bottom {
+    position: absolute;
+    z-index: 1;
+    width: 124px;
+    height: 4px;
+    background-color: #566b81;
+    border-radius: 2px;
+}
+body .player .list-box {
+    margin-top: -15px;
+    margin-left: calc(50% - 195px);
+    width: 406px;
+    height: 1px;
+    box-shadow: 0px 0px 9px 1px
+    rgba(6, 0, 1, 0.5);
+    overflow: hidden;
+    /*使用z-index定位必须要用position:absolute 否则会失效*/
+    z-index: -5;
+    position: absolute;
+    background-image: linear-gradient(-14deg,
+    #fdfcfb 0%,
+    #fdfbfb 100%);
+    border-radius: 5px;
+    /*伸缩动画*/
+    transition: all 1s;
+    -webkit-transition: all 1s; /* Safari */
+}
+
+body .player .list-box .list-container {
+    margin-top: 41px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+body .player .list-box .list-container .list-item {
+    margin-bottom: 20px;
+    /*使用flex组织内容*/
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    align-items: center;
+
+}
+
+body .player .list-box .list-container .list-item .item-cover {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: -3;
+    border-radius: 5px;
+}
+body .player .list-box .list-container .list-item .item-cover:before {
+    /*用来插入东西的，这里必须为空，
+    这个经常和 :before 及 :after 伪元素配合使用*/
+    content: "";
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    overflow: hidden;
+    z-index: -4; /*设置层级，相当于PS中的图层，越小越靠下*/
+    filter: blur(5px) brightness(0.95);
+}
+body .player .list-box .list-container .list-item .item-info {
+    margin-left: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+body .player .list-box .list-container .list-item .item-info .song-name {
+    font-family: "SourceHanSans SC Bold","Monsterrat", "Microsoft YaHei", serif;
+    font-size: 12px;
+    padding-top: 6px;
+    /*padding-bottom: 7px;*/
+}
+body .player .list-box .list-container .list-item .item-info .song-artist {
+    font-family: "SourceHanSans SC Bold","Monsterrat", "Microsoft YaHei", serif;
+    font-size: 10px;
+}
+
+body .player .list-box .list-container .list-item .song-time{
+    /*padding-left: 20px;*/
+    font-family: "SourceHanSans SC Bold","Monsterrat", "Microsoft YaHei", serif;
+    font-size: 12px;
+    margin-left: auto;
+    /*text-align: center;*/
+
+}
