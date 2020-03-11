@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:svg="http://www.w3.org/2000/svg">
+<head>
+    <meta charset="UTF-8">
+    <title>Rplayer DEMO</title>
+    <link rel="stylesheet" href="rplayer.css" type="text/css">
+    <!--Jquery-->
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <!--click show function-->
+    <!--使用jquery必须在引用之后-->
+    <script>
+        $(document).ready(function toggleList() {
+            console.log('document loaded');
+
+            //x.classList.toggle("change")
+            $("#list-toggle").click(
+                function (){
+                    let flag = ($("#list").css("height")!="182px");
+                    if(flag){
+                        console.log("toggle activated");
+                        $("#list").css("height","182px");
+                    }else{
+                        console.log("toggle deactivated");
+                        $("#list").css("height","0");
+                    }
+
+                }
+                /*function (){
+                    console.log("toggle deactivated");
+                    $("#list").css("height",0);
+                }*/
+            );
+        })
+        /*
+        * 发生Cannot read property 'toggle' of null是因为，
+        * 执行打开开关需要等页面加载完在执行 写个定时器就可以了*/
+    </script>
+
+</head>
+<body>
+    <div class="player">
+        <div id="box" class="player-box" >
+            <div id="song-title" class="song-title">Graveyard</div>
+            <div id="song-info" class="song-info">Halsey - Manic</div>
+            <div id="btns" class="btns-box" >
+                <!--previous-->
+                <svg t="1583828611920" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1520" class="btn" id="previous" ><path d="M759.931232 12.714422L265.535817 419.575931v-342.311366A41.077364 41.077364 0 1 0 182.892073 76.286533v870.937918a41.077364 41.077364 0 1 0 82.643744 0v-345.245463l494.395415 409.30659a48.901624 48.901624 0 0 0 81.176695-36.187202V48.901624A48.901624 48.901624 0 0 0 759.931232 12.714422z" p-id="1521"></path></svg>
+                <!--play-->
+                <svg t="1583550407543" class="btn" id="play" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1152"><path d="M917.8112 450.4064L160.5888 8.5504C151.3728 3.1744 141.824 0 130.944 0 101.2736 0 77.0816 24.0128 77.0816 53.3248H76.8v917.3504h0.256C77.056 999.9872 101.2992 1024 130.944 1024c11.1616 0 20.4032-3.7376 30.464-9.0624l756.4288-441.344A79.3344 79.3344 0 0 0 947.2 512c0-24.8064-11.4176-46.6688-29.3888-61.5936z" p-id="1153"></path></svg>
+                <!--next-->
+                <svg t="1583828702834" class="btn" id="next" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1982" ><path d="M263.889466 1011.570793l494.343464-407.339014v343.498087a41.242369 41.242369 0 1 0 82.484738 0V76.555441a41.242369 41.242369 0 1 0-82.484738 0v345.757943L264.45443 12.714514A48.5869 48.5869 0 0 0 183.09962 48.872207v926.540893a48.5869 48.5869 0 0 0 80.789846 36.157693z" p-id="1983"></path></svg>
+                <!--progress bar-->
+                <div class="progressbar">
+                    <div class="progress"></div>
+                    <div class="progressbar-bottom"></div>
+                </div>
+            <!--list-->
+                <svg t="1583827641670" class="btn" id="list-toggle" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1206" style="margin-left: auto"><path d="M170.666667 298.666667m-42.666667 0a42.666667 42.666667 0 1 0 85.333333 0 42.666667 42.666667 0 1 0-85.333333 0Z" fill="#231F20" p-id="1207"></path><path d="M170.666667 512m-42.666667 0a42.666667 42.666667 0 1 0 85.333333 0 42.666667 42.666667 0 1 0-85.333333 0Z" fill="#231F20" p-id="1208"></path><path d="M170.666667 725.333333m-42.666667 0a42.666667 42.666667 0 1 0 85.333333 0 42.666667 42.666667 0 1 0-85.333333 0Z" fill="#231F20" p-id="1209"></path><path d="M298.666667 469.333333m40.106666 0l517.12 0q40.106667 0 40.106667 40.106667l0 5.12q0 40.106667-40.106667 40.106667l-517.12 0q-40.106667 0-40.106666-40.106667l0-5.12q0-40.106667 40.106666-40.106667Z" fill="#231F20" p-id="1210"></path><path d="M298.666667 682.666667m40.106666 0l517.12 0q40.106667 0 40.106667 40.106666l0 5.12q0 40.106667-40.106667 40.106667l-517.12 0q-40.106667 0-40.106666-40.106667l0-5.12q0-40.106667 40.106666-40.106666Z" fill="#231F20" p-id="1211"></path><path d="M298.666667 256m40.106666 0l517.12 0q40.106667 0 40.106667 40.106667l0 5.12q0 40.106667-40.106667 40.106666l-517.12 0q-40.106667 0-40.106666-40.106666l0-5.12q0-40.106667 40.106666-40.106667Z" fill="#231F20" p-id="1212"></path></svg>
+
+
+            </div>
+            <img id="cover" src="./assets/cover.jpg" class="cover" alt="cover" />
+
+        </div>
+        <div id="list" class="list-box">
+            <div class="list-container">
+                <div class="list-item">
+                    <img id="item-1-cover" src="./assets/cover.jpg" class="item-cover" alt="cover-1"/>
+                    <div id="item-1-info" class="item-info">
+                        <div class="song-name">Graveyard - Now Playing</div>
+                        <div class="song-artist">Halsey</div>
+                    </div>
+                    <div class="song-time">3:20</div>
+                </div>
+                <div class="list-item">
+                    <img id="item-2-cover" src="./assets/cover.jpg" class="item-cover" alt="cover-1"/>
+                    <div id="item-2-info" class="item-info">
+                        <div class="song-name">Finally // beautiful stranger</div>
+                        <div class="song-artist">Halsey</div>
+                    </div>
+                    <div class="song-time">3:20</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div><img src="assets/cover.jpg" alt="cover" id="origin-image" style="display: none"/></div>
+</body>
+
+
+    <!--Jquery-->
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <!--ColorThief module-->
+    <script src="node_modules/colorthief/dist/color-thief.umd.js"></script>
+    <script src="Modules/getSimilarColor.js"></script>
+    <script>
+        // import colorthief
+        const colorThief = new ColorThief();
+
+
+
+        // get text that expected to change
+        const box = document.getElementById('box');
+        const title = document.getElementById('song-title');
+        const info = document.getElementById('song-info');
+        const btns = document.querySelector('btn'); //TODO 增加网页中的按钮元素 选择器为btns
+        const pgsbar = document.querySelector('progress-bar-progress');
+
+        // use html5 to read file from local
+        const fileReader = new FileReader();
+        const img = document.getElementById('origin-image');
+        img.onchange = function () {
+            let file = img.files[0];
+            fileReader.readAsDataURL(file);
+            fileReader.onload = function () {
+                //  document.getElementById('result').innerHTML = reader.result;
+                //  TODO play with the pic
+                colorThief.getPalette(fileReader.result, function (palettes) {
+                    console.log(palettes);
+                    let gradient = [];
+                    box.style.backgroundImage = `linear-gradient(-14deg,${gradient[0]} 0%,${gradient[1]} 100%)`;
+
+                })
+            }
+        };
+
+
+    </script>
+</html>
