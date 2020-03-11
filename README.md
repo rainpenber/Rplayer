@@ -2,6 +2,8 @@
 一个播放器DEMO 自己在练习的css 准备封装成前端用的UI组件
 使用的依赖：jquery css3 flex colorthief
 
+![效果](https://user-gold-cdn.xitu.io/2020/3/11/170c80e363600881?w=709&h=512&f=png&s=163198)
+
 # 待完成的CSS样式
 
 - [x] 弥散阴影效果
