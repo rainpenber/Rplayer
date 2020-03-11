@@ -1,5 +1,6 @@
 # Rplayer
 一个播放器DEMO 自己在练习的css 准备封装成前端用的UI组件
+使用的依赖：jquery css3 flex colorthief
 
 # 待完成的CSS样式
 
